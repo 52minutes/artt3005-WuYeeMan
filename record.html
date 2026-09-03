@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Card</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4 antialiased text-slate-800">
+
+    <main class="w-full flex items-center justify-center">
+
+        <!-- Card: dimensions ~460px by 520px with flex layout to distribute elements smoothly -->
+        <div id="record-card" class="w-full max-w-[460px] h-[520px] bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-slate-300/60 relative overflow-hidden">
+            
+            <!-- Top Section: Image & Content -->
+            <div class="flex flex-col gap-4">
+                
+                <!-- Large Image Placeholder -->
+                <div class="w-full h-56 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-xl border border-dashed border-slate-300 flex flex-col items-center justify-center group cursor-pointer relative overflow-hidden transition-all duration-300 hover:border-indigo-400">
+                    <!-- Subtle decorative background pattern -->
+                    <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    
+                    <!-- SVG Placeholder Graphic -->
+                    <div class="relative z-10 flex flex-col items-center gap-2 text-slate-400 transition-transform duration-300 group-hover:scale-105 group-hover:text-indigo-500">
+                        <svg class="w-14 h-14 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+                        </svg>
+                        <span class="text-xs font-medium tracking-wide uppercase">Image Placeholder</span>
+                    </div>
+
+                    <!-- Hidden Image Element Fallback/Preview -->
+                    <img id="card-image" class="hidden absolute inset-0 w-full h-full object-cover rounded-xl" src="" alt="Record Image" onerror="this.classList.add('hidden')" />
+                </div>
+
+                <!-- Title & Meta Text Stack -->
+                <div class="flex flex-col gap-1.5 px-1 mt-1">
+                    <h1 class="text-2xl font-bold text-slate-900 tracking-tight leading-snug">
+                        Vintage Vinyl Collection Entry #108
+                    </h1>
+                    <p class="text-sm font-normal text-slate-500 tracking-wide">
+                        Added on October 14, 2026 • Catalog ID: REC-9082
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Archive Action Button -->
+            <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <button id="archive-btn" 
+                        onclick="handleArchive()"
+                        class="w-full py-3 px-5 bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-medium text-sm rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2">
+                    <svg id="archive-icon" class="w-4 h-4 stroke-[2] transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.75 7.5h16.5a1.5 1.5 0 001.5-1.5V4.5a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 4.5v1.5a1.5 1.5 0 001.5 1.5z"></path>
+                    </svg>
+                    <span id="btn-text">Archive this</span>
+                </button>
+            </div>
+
+            <!-- Success Toast Notification -->
+            <div id="toast" class="absolute inset-x-6 top-6 bg-slate-900/95 backdrop-blur text-white text-xs font-medium py-2.5 px-4 rounded-lg shadow-lg flex items-center justify-between opacity-0 translate-y-[-10px] pointer-events-none transition-all duration-300">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Record archived successfully!</span>
+                </div>
+                <button onclick="undoArchive()" class="text-indigo-300 hover:text-white underline font-semibold ml-2">Undo</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        let isArchived = false;
+
+        function handleArchive() {
+            const btn = document.getElementById('archive-btn');
+            const btnText = document.getElementById('btn-text');
+            const toast = document.getElementById('toast');
+            const card = document.getElementById('record-card');
+
+            if (!isArchived) {
+                isArchived = true;
+                btnText.textContent = "Archived";
+                btn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+                btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                
+                // Dim card slightly to show archived state
+                card.classList.add('opacity-85');
+
+                // Show toast notification
+                toast.classList.remove('opacity-0', 'translate-y-[-10px]', 'pointer-events-none');
+                toast.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+                // Hide toast automatically after 4 seconds
+                setTimeout(() => {
+                    hideToast();
+                }, 4000);
+            }
+        }
+
+        function undoArchive() {
+            const btn = document.getElementById('archive-btn');
+            const btnText = document.getElementById('btn-text');
+            const card = document.getElementById('record-card');
+
+            isArchived = false;
+            btnText.textContent = "Archive this";
+            btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+            btn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+            
+            card.classList.remove('opacity-85');
+            hideToast();
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            toast.classList.add('opacity-0', 'translate-y-[-10px]', 'pointer-events-none');
+        }
+    </script>
+</body>
+</html>
