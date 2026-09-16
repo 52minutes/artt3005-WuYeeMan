@@ -1,0 +1,225 @@
+{
+  "collection": "How Close Is Close Enough?",
+  "records": [
+    {
+      "catalog_id": "REC-001",
+      "title": "The Original",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyBeforeEntry.JPG",
+      "not_captured": "Touch, weight and how it behaves in the lock.",
+      "certainty": "high — I photographed the original key directly"
+    },
+    {
+      "catalog_id": "REC-002",
+      "title": "The Copy",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/TheCopy.JPG",
+      "not_captured": "Touch, weight and how it behaves in the lock.",
+      "certainty": "high — I photographed the copied key directly"
+    },
+    {
+      "catalog_id": "REC-003",
+      "title": "Same Outline",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/Outline.JPG",
+      "not_captured": "Small differences in the teeth and surface.",
+      "certainty": "medium — the overall shape is clear, but small differences are difficult to judge"
+    },
+    {
+      "catalog_id": "REC-004",
+      "title": "Original Edge",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/OriginalEdge.JPG",
+      "not_captured": "Very small details of the teeth.",
+      "certainty": "low — the very small details of the teeth are difficult to see without a macro lens"
+    },
+    {
+      "catalog_id": "REC-005",
+      "title": "Copy Edge",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyEdge.JPG",
+      "not_captured": "Very small details of the teeth.",
+      "certainty": "low — the very small details of the teeth are difficult to see without a macro lens"
+    },
+    {
+      "catalog_id": "REC-006",
+      "title": "Handle Difference",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/HandleDifference.JPG",
+      "not_captured": "How the different handle shapes feel in the hand.",
+      "certainty": "high — the difference in handle shape is clearly visible"
+    },
+    {
+      "catalog_id": "REC-007",
+      "title": "Original Wear Marks",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/OriginalWearMarks.JPG",
+      "not_captured": "Very fine scratches and surface texture.",
+      "certainty": "medium — the wear is visible, but some fine scratches are difficult to see"
+    },
+    {
+      "catalog_id": "REC-008",
+      "title": "Copy Wear Marks",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyWearMarks.JPG",
+      "not_captured": "Very fine corrosion and surface texture.",
+      "certainty": "high — the corrosion marks are clearly visible"
+    },
+    {
+      "catalog_id": "REC-009",
+      "title": "Visual Comparison",
+      "type": "text",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/VisualComparison.txt",
+      "not_captured": "Differences that appear under other lighting or angles.",
+      "certainty": "high — the visible differences were observed directly"
+    },
+    {
+      "catalog_id": "REC-010",
+      "title": "Touch",
+      "type": "text",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/Touch.txt",
+      "not_captured": "The actual physical sensation of holding the keys.",
+      "certainty": "medium — this is based on my own sense of touch"
+    },
+    {
+      "catalog_id": "REC-011",
+      "title": "Smell",
+      "type": "text",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/Smell.txt",
+      "not_captured": "The smell itself.",
+      "certainty": "medium — this is based on my own sense of smell"
+    },
+    {
+      "catalog_id": "REC-012",
+      "title": "Original Before Entry",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/OriginalBeforeEntry.JPG",
+      "not_captured": "The mechanism inside the lock.",
+      "certainty": "high — I photographed the original key directly at the lock"
+    },
+    {
+      "catalog_id": "REC-013",
+      "title": "Copy Before Entry",
+      "type": "image",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyBeforeEntry.JPG",
+      "not_captured": "The mechanism inside the lock.",
+      "certainty": "high — I photographed the copied key directly at the lock"
+    },
+    {
+      "catalog_id": "REC-014",
+      "title": "Original Turning",
+      "type": "sound",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/OriginalTurning.m4a",
+      "not_captured": "The pressure and resistance felt by hand.",
+      "certainty": "medium — I recorded the sound directly, but resistance cannot be judged from sound alone"
+    },
+    {
+      "catalog_id": "REC-015",
+      "title": "Copy Turning",
+      "type": "sound",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyTuring.m4a",
+      "not_captured": "The pressure and small movements needed to turn it.",
+      "certainty": "medium — I recorded the sound directly, but resistance cannot be judged from sound alone"
+    },
+    {
+      "catalog_id": "REC-016",
+      "title": "Original Drop",
+      "type": "sound",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/OriginalDrop.m4a",
+      "not_captured": "Weight and physical movement during the drop.",
+      "certainty": "medium — I recorded the drop directly, but the sound can vary depending on how the key lands"
+    },
+    {
+      "catalog_id": "REC-017",
+      "title": "Copy Drop",
+      "type": "sound",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/CopyDrop.m4a",
+      "not_captured": "Weight and physical movement during the drop.",
+      "certainty": "medium — I recorded the drop directly, but the sound can vary depending on how the key lands"
+    },
+    {
+      "catalog_id": "REC-018",
+      "title": "Measurement",
+      "type": "text",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/Measurement.txt",
+      "not_captured": "Why the two keys have different weights.",
+      "certainty": "high — I measured the weight of both keys directly"
+    },
+    {
+      "catalog_id": "REC-019",
+      "title": "Grandmother's Taishanese Conversation",
+      "type": "sound",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/GrannyTaishaneseKeyConversation.m4a",
+      "not_captured": "Listeners may not understand Taishanese.",
+      "certainty": "high — this is a direct recording of my grandmother speaking"
+    },
+    {
+      "catalog_id": "REC-020",
+      "title": "Grandmother's Words — Translation",
+      "type": "text",
+      "date": "2026-09-16",
+      "place": "home",
+      "recorder": "Wu Yee Man",
+      "file": "media/GrannyKeyTranslation.txt",
+      "not_captured": "Her accent, rhythm, tone and exact Taishanese expressions.",
+      "certainty": "medium — the meaning is translated from the recording, but some Taishanese expressions may not translate exactly"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Close Is Close Enough?</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 40px 24px; font-family: Arial, sans-serif; background: #f3f3f3; color: #222; }
+    header { max-width: 1200px; margin: 0 auto 40px; }
+    h1 { margin-bottom: 8px; font-size: 36px; }
+    .subtitle { color: #666; }
+    #collection { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .record-card { background: white; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .media { width: 100%; min-height: 220px; background: #e9e9e9; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .media img { width: 100%; height: 260px; object-fit: cover; display: block; }
+    .media audio { width: calc(100% - 32px); margin: 32px 16px; }
+    .text-record { padding: 24px; white-space: pre-wrap; line-height: 1.6; width: 100%; }
+    .record-info { padding: 20px; }
+    .catalog-id { font-family: monospace; font-size: 12px; color: #777; margin-bottom: 8px; }
+    .record-title { margin: 0 0 12px; font-size: 22px; }
+    .meta { font-size: 14px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .field { margin-top: 14px; }
+    .field-label { display: block; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #777; margin-bottom: 4px; }
+    .field-value { line-height: 1.5; }
+    .error { max-width: 900px; margin: 40px auto; padding: 20px; background: white; border: 1px solid #ccc; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="collection-title">The Collection</h1>
+    <div class="subtitle">Twenty records of one original key and its copy.</div>
+  </header>
+
+  <main id="collection"></main>
+
+  <script>
+    async function loadCollection() {
+      try {
+        const response = await fetch("records.json");
+        if (!response.ok) throw new Error("Could not load records.json");
+
+        const data = await response.json();
+        document.getElementById("collection-title").textContent = data.collection || "The Collection";
+        const collection = document.getElementById("collection");
+
+        for (const record of data.records) {
+          const card = document.createElement("article");
+          card.className = "record-card";
+
+          const media = document.createElement("div");
+          media.className = "media";
+
+          if (record.type === "image") {
+            const img = document.createElement("img");
+            img.src = record.file;
+            img.alt = record.title;
+            media.appendChild(img);
+          } else if (record.type === "sound") {
+            const audio = document.createElement("audio");
+            audio.controls = true;
+            audio.src = record.file;
+            media.appendChild(audio);
+          } else if (record.type === "text") {
+            const textContainer = document.createElement("div");
+            textContainer.className = "text-record";
+            try {
+              const textResponse = await fetch(record.file);
+              if (!textResponse.ok) throw new Error("Could not load text file");
+              textContainer.textContent = await textResponse.text();
+            } catch {
+              textContainer.textContent = "Text file could not be loaded.";
+            }
+            media.appendChild(textContainer);
+          }
+
+          const info = document.createElement("div");
+          info.className = "record-info";
+          info.innerHTML = `
+            <div class="catalog-id">${record.catalog_id}</div>
+            <h2 class="record-title">${record.title}</h2>
+            <div class="meta">${record.date} · ${record.place}<br>Recorded by ${record.recorder}</div>
+            <div class="field">
+              <span class="field-label">What was not captured</span>
+              <div class="field-value">${record.not_captured}</div>
+            </div>
+            <div class="field">
+              <span class="field-label">Certainty</span>
+              <div class="field-value">${record.certainty}</div>
+            </div>
+          `;
+
+          card.appendChild(media);
+          card.appendChild(info);
+          collection.appendChild(card);
+        }
+      } catch (error) {
+        document.body.innerHTML = `
+          <div class="error">
+            records.json did not load.<br><br>
+            Are you serving the folder through a local server?
+          </div>
+        `;
+      }
+    }
+
+    loadCollection();
+  </script>
+</body>
+</html>
